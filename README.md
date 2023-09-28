@@ -1,8 +1,13 @@
-# vue-common-files
+# Mcity Vue3 Auth
 
-Common vue files used across Mcity projects.
+Vue wrapper files used to check authorization for users throughout Mcity apps.
 
-# Usage
+## Tech
+
+Mcity-vue3-auth uses a number of open source projects to work properly:
+
+- [[Vue.js](https://vuejs.org/) v3] - Used for our frontend.
+- [[Pinia](https://pinia.vuejs.org/)] - Used for frontend state management.
 
 ## Env Setup
 
@@ -15,14 +20,14 @@ VITE_OAUTH_KEY=value
 VITE_HOST=http://localhost:8080
 VITE_OAUTH_SERVER=https://keys.um.city/
 VITE_REDIRECT_URI=http://localhost:8080/authorized
-VITE_OAUTH_SCOPE=email+roles
+VITE_OAUTH_SCOPE=email+roles+[value]
 ```
 
 ## App Setup
 
 - After the default router view in the `App.vue` template, add a named router view to `App.vue` with `<router-view name="auth"/>`
 - Import `authRefresh` component with
-  `import authRefresh from 'mcity-vue-auth/components/RefreshAuthiFrame.vue'`
+  `import authRefresh from 'mcity-vue3-auth/components/RefreshAuthiFrame.vue'`
 - In the template of `App.vue`, after the router-view, add the imported `authRefresh` component
 
 ```
@@ -35,7 +40,7 @@ VITE_OAUTH_SCOPE=email+roles
 
 ## Router Setup
 
-- Import `AuthComponent` into the Vue Router `index.js` file with `import 'AuthComponent' from 'mcity-vue-auth/components/AuthComponent.vue'`
+- Import `AuthComponent` into the Vue Router `index.js` file with `import 'AuthComponent' from 'mcity-vue3-auth/components/AuthComponent.vue'`
 - Add a new top-level route, `/authorized`
 
 ```
@@ -56,20 +61,21 @@ VITE_OAUTH_SCOPE=email+roles
 - If it is not already there, import the vuex store into the router.
   `import store from '../store'`
 - Add the following line before the export of the router:
-  `router.beforeEach(checkRequiresAuth.bind({ $store: store }))`
+  `router.beforeEach(checkRequiresAuth)`
 
-## Vuex Setup
+## Pinia Setup
 
-- Add the `session` Vuex module to the store.
+- Add the `session` Pinia module to the store.
 
 ```
-import session from 'mcity-vue-auth/store/session'
+import useSessionStore from '@mcity/mcity-vue-auth-pinia/dist/store/session'
 
-export default new Vuex.Store({
-  modules: {
-    session
-  },
-}
+export const useStore = defineStore('store', () => {
+
+  const session = useSessionStore()
+
+  return { projects, getProjectByKey, session }
+})
 ```
 
 # Adding Changes
