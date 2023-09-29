@@ -57,8 +57,6 @@ VITE_OAUTH_SCOPE=email+roles+[value]
 
 - Import the `checkRequiresAuth` function into the Vue router `index.js` file with
   `import { checkRequiresAuth } from '@mcity/mcity-vue3-auth/src/router/beforeEachHooks'`
-- If it is not already there, import the vuex store into the router.
-  `import store from '../store'`
 - Add the following line before the export of the router:
   `router.beforeEach(checkRequiresAuth)`
 
@@ -83,3 +81,4 @@ export const useStore = defineStore('store', () => {
 
 - After making code changes, rerun babel by running `npm run build`
 - Make sure to commit these built files.
+- Updated the version number and push to main. Github actions will publish changes to NPM.
