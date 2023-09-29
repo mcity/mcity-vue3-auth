@@ -1,8 +1,8 @@
 {
-  "name": "@mcity/mcity-vue-auth-pinia",
-  "version": "1.3.7",
+  "name": "@mcity/mcity-vue3-auth",
+  "version": "1.0.1",
   "author": "Brandon Lyons & Tyler Worman",
-  "description": "Shared vue files for Mcity projects",
+  "description": "Vue wrapper files used to check authorization for users throughout Mcity apps.",
   "main": "index.js",
   "scripts": {
     "build": "babel src -d dist",
@@ -10,13 +10,13 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/mcity/mcity-vue-auth-pinia.git"
+    "url": "git+https://github.com/mcity/mcity-vue3-auth.git"
   },
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/mcity/mcity-vue-auth-pinia/issues"
+    "url": "https://github.com/mcity/mcity-vue3-auth/issues"
   },
-  "homepage": "https://github.com/mcity/mcity-vue-auth-pinia#readme",
+  "homepage": "https://github.com/mcity/mcity-vue3-auth#readme",
   "dependencies": {
     "@babel/polyfill": "^7.12.1",
     "axios": "^1.5.0",
