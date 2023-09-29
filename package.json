@@ -1,6 +1,6 @@
 {
   "name": "@mcity/mcity-vue3-auth",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "author": "Brandon Lyons & Tyler Worman",
   "description": "Vue wrapper files used to check authorization for users throughout Mcity apps.",
   "main": "index.js",
