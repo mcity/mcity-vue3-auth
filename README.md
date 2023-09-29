@@ -27,20 +27,19 @@ VITE_OAUTH_SCOPE=email+roles+[value]
 
 - After the default router view in the `App.vue` template, add a named router view to `App.vue` with `<router-view name="auth"/>`
 - Import `authRefresh` component with
-  `import authRefresh from 'mcity-vue3-auth/components/RefreshAuthiFrame.vue'`
+  `import authRefresh from '@mcity/mcity-vue3-auth/src/components/RefreshAuthiFrame.vue'`
 - In the template of `App.vue`, after the router-view, add the imported `authRefresh` component
 
 ```
 <auth-refresh
   v-if="getShowIframe"
-  adminRole="PROJECTADMIN"
 >
 </auth-refresh>
 ```
 
 ## Router Setup
 
-- Import `AuthComponent` into the Vue Router `index.js` file with `import 'AuthComponent' from 'mcity-vue3-auth/components/AuthComponent.vue'`
+- Import `AuthComponent` into the Vue Router `index.js` file with `import 'AuthComponent' from '@mcity/mcity-vue3-auth/src/components/AuthComponent.vue'`
 - Add a new top-level route, `/authorized`
 
 ```
@@ -57,7 +56,7 @@ VITE_OAUTH_SCOPE=email+roles+[value]
 ```
 
 - Import the `checkRequiresAuth` function into the Vue router `index.js` file with
-  `import { checkRequiresAuth } from 'mcity-vue-auth/router/beforeEachHooks'`
+  `import { checkRequiresAuth } from '@mcity/mcity-vue3-auth/src/router/beforeEachHooks'`
 - If it is not already there, import the vuex store into the router.
   `import store from '../store'`
 - Add the following line before the export of the router:
@@ -68,7 +67,7 @@ VITE_OAUTH_SCOPE=email+roles+[value]
 - Add the `session` Pinia module to the store.
 
 ```
-import useSessionStore from '@mcity/mcity-vue-auth-pinia/dist/store/session'
+import useSessionStore from '@mcity/mcity-vue3-auth/src/store/session'
 
 export const useStore = defineStore('store', () => {
 
