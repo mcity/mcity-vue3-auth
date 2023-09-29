@@ -22,6 +22,7 @@ function pollIframe(redirectUri, { contentWindow: iframe }) {
       try {
         if (iframePath === redirectUriPath) {
           if (iframe.location.hash) {
+            // Extracts url params from hash segment
             const params = queryString.parse(iframe.location.hash);
 
             if (params.error) {
